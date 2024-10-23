@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <link rel="stylesheet" href="/styles/icon/themify-icons-font/themify-icons/themify-icons.css">
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: #ddd;
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+.col_third{
+    width: 33.33333%;
+    background-color: #002855;
+    padding: 1px 20px;
+    color: #fff;
+
+}
+
+.col_two_third{
+    width: 66.66666%;
+    background-color: #fff;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #000;
+}
+
+.col_half{
+    width: 48%;
+    border: 2px solid #fff;
+    float: left;
+}
+
+#main{
+    width: 800px;
+    max-width: calc(100% - 100px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    margin: 150px auto 0;
+    display: flex;
+    clear: both;
+}
+
+
+.section_image{
+    width: 20vw;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 40px auto 0;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid #ccc;
+    transition: transform 0.5s ease; /* Hiệu ứng mượt khi hover */
+}
+
+.section_image:hover{
+    transform: scale(1.1); /* Phóng to khung ảnh */
+}
+
+.image_personal{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.section_heading{
+    border-bottom: 1px solid #fff;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.section_line{
+    padding-top: 15px;
+    font-size: 14px;
+    word-wrap: break-word;
+    display: flex;
+
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+    .icon_contact{
+        padding-right: 10px;
+        display: inline;
+    }
+    .text{
+        display: inline;
+        word-break: break-all;
+    }
+    clear: both;
+}
+
+.education_info{
+    padding: 15px 0;
+
+    .sub_heading{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .section_text{
+        font-size: 14px;
+        margin-top: 5px;
+        margin-left: 15px ;
+    }
+
+    .section_text li{
+        padding-top: 5px;
+    }
+}
+
+.list_skills{
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 15px ;
+    
+    li{
+        padding-top: 5px;
+    }
+}
+
+.list_item{
+    padding: 15px 0;
+    .sub_heading{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .content{
+        font-size: 14px;
+        margin-top: 5px;
+        margin-left: 15px ;
+    }
+
+    .content li{
+        padding-top: 5px;
+    }
+}
+
+
+.personal_desc .section_Heading{
+    font-size: 40px;
+}
+
+
+.Heading{
+    padding-top: 50px;
+    padding-bottom: 27px;
+}
+
+/* .section_Heading{
+
+} */
+
+.section_family_name{
+    font-size: 45px;
+    color: #002855;
+    letter-spacing: 4px;
+    :hover{
+        
+    }
+}
+
+.section_name{
+    font-size: 45px;
+    font-weight: 500;
+    color: #002855;
+    letter-spacing: 4px;
+}
+
+.section_job{
+    font-size: 25px;
+    font-weight: 500;
+    color: #002855;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.section_title{
+    border-bottom: 2px solid #002855;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 6px;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.text_section{
+    font-size: 14px;
+    padding-top: 5px;
+    color: #000;
+    opacity: 0.7;
+    text-align: justify;
+}
+
+.text_sections{
+    font-size: 14px;
+    padding-top: 0;
+    margin-bottom: 10px;
+    color: #000;
+    opacity: 0.7;
+    text-align: justify;
+
+    li{
+        margin-left: 15px;
+        padding-top: 5px;;
+    }
+}
+
+.content_section{
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.Reference_item{
+    width: 48%;
+    float: left;
+    padding-top: 10px;
+}
+
+.Reference_heading{
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    padding-bottom: 5px;
+}
+
+.Reference_sub_heading{
+    font-size: 14px;
+    color: #555;
+    /* padding-bottom: 5px; */
+}
+
+.Reference_content{
+    font-size: 14px;
+    color: #000;
+    opacity: 0.8;
+}
+
+.Reference_phone, .Reference_email{
+    padding-top: 4px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="col_third personal_info">
+            <div class="section_image">
+                <img src="/styles/img/Anh3x4.jpg" alt="không hiển thị được hình ảnh" class="image_personal">
+            </div>
+
+            <div class="section_contact">
+                <h3 class="section_heading">Contact</h3>
+                <div class="section_body">
+                    <div class="section_line"><i class="icon_contact ti-mobile" ></i><div class="text">+84 328033580</div></div>
+                    <div class="section_line"><i class="icon_contact ti-email"></i><div class="text">21130195@student.hcmus.edu.vn</div></div>
+                    <div class="section_line"><i class="icon_contact ti-location-pin"></i><div class="text">Cần Giờ, Tp HCM</div></div>
+                    <div class="section_line"><a href="https://www.facebook.com/profile.php?id=100037652375005" target="_blank"><i class="icon_contact ti-facebook"></i>Facebook.com</a></div>
+                </div>
+            </div>
+            <div class="section_education">
+                <h3 class="section_heading">Education</h3>
+                <div class="section_body">
+                    <div class="education_info">
+                        <div class="sub_heading">2021 - 2025 <br> HCMUS - University of Science</div>
+                        <ul class="section_text">
+                            <li>Physics Education</li>
+                        </ul>
+                    </div>
+                    <div class="education_info">
+                        <div class="sub_heading">2023 - 2025 <br> HCMUS - University of Science</div>
+                        <ul class="section_text">
+                            <li>Physics Technology</li>
+                            <li>GPA: 3.0/4.0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section_skills">
+                <h3 class="section_heading">Skills</h3>
+                <ul class="list_skills">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>ReactJS, NodeJS</li>
+                    <li>Version control with Git and GitHub</li>
+                    <li>Responsive web design</li>
+                    <li>RESTful API development</li>
+                </ul>
+            </div>
+            <div class="section_language">
+                <h3 class="section_heading">Language</h3>
+                <div class="list_item">
+                    <div class="sub_heading">
+                        English
+                    </div>
+                    <ul class="content">
+                        <li>Toeic: 500+</li>
+                        <li>Ielts : none</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col_two_third personal_desc">
+            <div class="Heading">
+                <div class="section_Heading">
+                    <h2 class="section_family_name">NGUYEN</h2>
+                    <h2 class="section_name">TAN LOC</h2>
+                </div>
+                <h3 class="section_job">WEB DEVELOPER</h3>
+            </div>
+
+            <div class="Profile">
+                <h3 class="section_title">PROFILE</h3>
+                <p class="text_section">
+                  I have a passion for programming, especially in web development. Over the past few months, I have gained some knowledge in both Frontend and Backend development. I have worked on various projects that involve building responsive user interfaces and managing databases. My journey has allowed me to explore technologies such as HTML, CSS, JavaScript, React for Frontend, and Node.js, PHP, Express for Backend. I am committed to continuously improving and learning new skills to become a proficient full-stack developer.
+</p>
+            </div>
+
+            <div class="Goal">
+                <h3 class="section_title">GOAL</h3>
+                
+                <div class="content_section">
+                    <h4 class="sub_Heading">Pursuit of Career Excellence</h4>
+                    <p class="text_section">
+                        My goal is to continuously refine my skills, expand my knowledge, and embrace new challenges to achieve career excellence. Through dedication and an active approach, I aim to innovate, collaborate, making a meaningful impact in my chosen field.
+                    </p>
+                </div>
+                
+                <div class="content_section">
+                    <h4 class="sub_Heading">Experience Acquisition Objective</h4>
+                    <p class="text_section">
+                        My goal is to immerse myself in real-world environments to gain practical experience that complements my knowledge. Through internships, I aim to refine my skills, and build a professional network.
+                    </p>
+                </div>
+            </div>
+
+            <div class="Activity">
+                <h3 class="section_title">ACTIVITY</h3>
+
+                <div class="content_section">
+                    <h4 class="sub_Heading">Professional Field Activity</h4>
+                    <ul class="text_sections">
+                        <li>A Timer Model using 7SEG</li>
+                        <li>Game 2D with JAVA</li>
+                        <li>Game 2D with JAVA</li>
+                    </ul>
+                </div>
+
+                <h4 class="sub_Heading">Volunteer Activity | Hoa Phuong Do</h4>
+            </div>
+
+            <div class="Reference">
+                <h3 class="section_title">REFERENCE</h3>
+
+                <div class="col_half Reference_item">
+                    <div class="Reference_heading">John Doe</div>
+                    <div class="Reference_sub_heading">Senior Developer at ABC Corp</div>
+                    <div class="Reference_content">
+                        <p class="Reference_phone">+84 123456789</p>
+                        <div class="Reference_email">john.doe@example.com</div>
+                    </div>
+                </div>
+                
+                <div class="col_half Reference_item">
+                    <div class="Reference_heading">Jane Smith</div>
+                    <div class="Reference_sub_heading">Project Manager at XYZ Ltd</div>
+                    <div class="Reference_content">
+                        <p class="Reference_phone">+84 987654321</p>
+                        <div class="Reference_email">jane.smith@example.com</div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

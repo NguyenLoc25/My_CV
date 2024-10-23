@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My web</title>
+    <link rel="stylesheet" href="/styles/icon/themify-icons-font/themify-icons/themify-icons.css">
+    <!-- css -->
+    <link rel="stylesheet" href="/styles/css/styles.css">
+    <style>
+
+        /* CSS cho khung chứa CV */
+        #cv-container {
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        /* Hiển thị CV */
+        #cv-container.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100% - 50px); /* Chừa không gian cho nút "Quay về" */
+            border: none;
+        }
+
+        /* CSS cho nút "Quay về" */
+        #backBtn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #293039;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #backBtn:hover {
+            background-color: #1f2a36;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-content" class="fade-out">
+        <div style="display: flex; background-color: #293039;">
+            <div id="personal-holder">
+                <img id="background_img" style="cursor: pointer;" src="/styles/img/tourdates_sanfran.jpg" swidth="200" height="200"/>
+                <button id="emailBtn" style="cursor: pointer;">Email me</button>
+            </div>
+            <div id="content-holder">
+                <div id="header-holder">
+                    <h1>NGUYEN TAN LOC</h1>
+                    <h4>"Simple is perfect!"</h4>
+                </div>
+                <div class="content">
+                    <h2 class="title">About me</h2>
+                    <p>
+                        I am currently a student of Physics and Computer Science at VNU-HCMUS, where I have developed strong skills in both disciplines. I have a keen interest in researching computer science, which has led me to earn a special prize in my university's Student Research Contest. Besides academics, I enjoy playing video games in my free time. My proficiency in English allows me to effectively read and listen to various resources, enhancing both my studies and personal interests.
+                    </p>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button id="resumeBtn">Resume</button>
+                        <!-- <button>Projects</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khung chứa CV -->
+    <div id="cv-container">
+        <iframe src="/styles/CV/index.html" ></iframe>
+        <!-- Nút "Quay về" -->
+        <button id="backBtn">Turn Back</button>
+    </div>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="ti-close btn-close"></span> <!-- Nút đóng với icon -->
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-notify"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-notify"></div>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- JS -->
+    <script type="module">
+        import ImageToggle from './styles/js/imageToggle.js'; // Import class ImageToggle
+        import Modal from './styles/js/modal.js'; // Import class Modal
+        import Validator from './styles/js/Validator.js'; // Import class Validator
+        
+        // Chức năng chuyển đổi ảnh
+        const backgroundImg = document.getElementById('background_img'); // Lấy phần tử ảnh
+        const avtImages = ['/styles/img/tourdates_sanfran.jpg', '/styles/img/Anh3x4.jpg']; // Danh sách ảnh
+        const imageToggle = new ImageToggle(); // Tạo instance của ImageToggle
+    
+        // Thiết lập sự kiện cho chuyển đổi ảnh
+        backgroundImg.addEventListener('click', () => {
+            imageToggle.toggleImage(backgroundImg, avtImages); // Chuyển đổi ảnh khi nhấn
+        });
+    
+        // Chức năng modal
+        const emailModal = document.getElementById('emailModal'); // Lấy phần tử modal
+        const emailBtn = document.getElementById("emailBtn"); // Nút "Email me"
+        const closeBtn = document.querySelector('.btn-close'); // Nút đóng với icon
+        const modal = new Modal(); // Tạo instance của Modal
+    
+        // Thiết lập sự kiện cho modal
+        modal.setupModalListeners(emailBtn, closeBtn, emailModal); // Gọi setup để quản lý modal
+    
+        // Chức năng Resume
+        const resumeBtn = document.getElementById('resumeBtn'); // Nút "Resume"
+        const mainContent = document.getElementById('main-content'); // Nội dung chính
+        const cvContainer = document.getElementById('cv-container'); // Phần chứa CV
+        const backBtn = document.getElementById('backBtn'); // Nút quay về
+    
+        // Thiết lập sự kiện hiển thị CV khi nhấn nút Resume
+        resumeBtn.addEventListener('click', () => {
+            mainContent.style.display = 'none'; // Ẩn nội dung chính
+            cvContainer.classList.add('show'); // Hiển thị phần CV
+        });
+    
+        // Xử lý sự kiện nhấn nút "Quay về"
+        backBtn.addEventListener('click', () => {
+            cvContainer.classList.remove('show'); // Ẩn phần CV
+            setTimeout(() => {
+                mainContent.style.display = 'block'; // Hiển thị lại nội dung chính sau 0.5s
+            }, 500); // Thời gian tương ứng với thời gian của hiệu ứng CSS
+        });
+    
+        // Chức năng kiểm tra form (Validator)
+        const contactForm = document.getElementById('contactForm'); // Lấy form cần kiểm tra
+        const formValidator = new Validator(contactForm); // Tạo instance của Validator để kiểm tra form
+    </script>
+    
+</body>
+</html>

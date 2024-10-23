@@ -1,0 +1,247 @@
+:root {
+    --primary-color:#809fc3;
+    --secondary-color: #0b315e;
+    --primary-text: #002855;
+    --secondary-text: #f3f3f3;
+    --neutural-color: #FFFEF4;
+    --round: 40px;
+    --padding: 30px;
+    --margin: 100px;
+}
+
+body {
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* Căn giữa theo chiều ngang */
+    align-items: center;      /* Căn giữa theo chiều dọc */
+    background-color: var(--neutural-color); /* Tùy chọn nền */
+}
+
+#main-content {
+    display: flex;
+    flex-direction: row;
+    width: 90%; /* Điều chỉnh để phù hợp với thiết kế của bạn */
+    max-width: 800px; /* Giới hạn chiều rộng tối đa */
+    background-color: white; /* Nền của khung chứa nội dung */
+    border-radius: var(--round);
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#content-holder {
+    width:70%; 
+    display: flex; 
+    flex-direction: column; 
+    border-radius: var(--round) 0px 0px var(--round); 
+    background-color: var(--primary-color); 
+    overflow: hidden;
+}
+
+#personal-holder {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: var(--padding);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding);
+}
+
+#personal-holder button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-text); /* Màu chữ khi hover nếu cần */
+}
+
+#personal-holder img {
+    border-radius: 30px;
+}
+
+#personal-holder img:hover {
+    border-radius: 50%;
+}
+
+#personal-holder button {
+    background-color: var(--secondary-color)00;
+    color: inherit;
+    border: 2px solid var(--primary-color);
+
+}
+
+#personal-holder button:active {
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--primary-text);
+}
+
+#header-holder
+{
+    background-color: var(--neutural-color);
+    color: var(--secondary-color);
+    padding: var(--padding);
+    padding-left: calc( var(--padding) * 1.5 );
+    border-bottom-left-radius: var(--round);
+}
+
+#header-holder h1 {
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+}
+
+.content {
+    background-color: var(--primary-color);
+    color: #002855;
+    padding: var(--padding);
+    padding-left: calc( var(--padding) * 1.5 );
+    padding-right: 20%;
+}
+
+.content .title{
+    text-transform: capitalize;
+}
+
+.content p{
+    text-align: justify;
+}
+
+button {
+    min-width: 100px;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: inherit;
+    background-color: var(--neutural-color);
+}
+
+button:hover {
+    border-radius: 20px;
+}
+
+/* button in click */
+button:active {
+    border-radius: 20px;
+    background-color: var(--primary-text);
+    color: var(--neutural-color);
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-out.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* MODAL */
+/* Modal background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Đặt opacity 0 để ẩn */
+    transform: translateY(-100px); /* Di chuyển modal lên trên ban đầu */
+    transition: all 0.5s ease-in-out; /* Thêm hiệu ứng mượt khi thay đổi */
+}
+
+/* Khi modal được hiển thị */
+.modal.show {
+    display: block; /* Hiển thị modal */
+}
+
+.modal.show .modal-content {
+    opacity: 1; /* Hiển thị nội dung modal */
+    transform: translateY(0); /* Trượt modal xuống vị trí ban đầu */
+}
+
+
+/* Close button */
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Close button hover */
+.btn-close:hover {
+    color: #000;
+}
+
+/* CSS for invalid input */
+input.invalid, textarea.invalid {
+    border: 2px solid red;
+}
+
+/* Hide form notify by default */
+.error-notify {
+    color: red;
+    display: none;
+    font-size: 12px;
+}
+
+/* Show form notify when invalid */
+input.invalid + .form-notify, textarea.invalid + .form-notify {
+    display: block;
+}
+
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #293039;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1f2a36;
+}
+
